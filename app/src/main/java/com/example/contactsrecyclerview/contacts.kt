@@ -7,5 +7,6 @@ data class contacts(
     var name: String,
     var person: String,
     var number: String,
+    var  email: String
 
     )

@@ -20,6 +20,7 @@ class addContact : AppCompatActivity() {
         binding.btnSave.setOnClickListener {
 
             validateAddContact()
+            clearErrors()
         }
 
     }
@@ -34,28 +35,32 @@ class addContact : AppCompatActivity() {
 
         if (name1.isEmpty()) {
             binding.tilfirname.error = " Name required"
-            Toast.makeText(this, "Please enter phone number", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Please enter name", Toast.LENGTH_SHORT).show();
             error = true
         }
 
 
         if (name2.isEmpty()){
             binding.tilemail.error= "Email Address required"
-            Toast.makeText(this, "Enter Name", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Enter Email address", Toast.LENGTH_SHORT).show()
             error = true
         }
 
         if (phone.isEmpty()) {
-            binding.tilnumber.error = "Password required"
-            Toast.makeText(this, "Please enter last name", Toast.LENGTH_SHORT).show();
+            binding.tilnumber.error = "Phone number required"
+            Toast.makeText(this, "Please enter phone number", Toast.LENGTH_SHORT).show();
             error = true
         }
         if (!error){
-            val y = Intent(this,addContact::class.java)
-            startActivity(y)
+//            val y = Intent(this,addContact::class.java)
+//            startActivity(y)
+            Toast.makeText(this,"Contact has been added", Toast.LENGTH_SHORT).show()
+            finish()
         }
-
-        Toast.makeText(this,"Contact has been added", Toast.LENGTH_SHORT).show()
-        finish()
+    }
+    fun clearErrors(){
+        binding.tilfirname.error=null
+        binding.etemail.error = null
+        binding.tilnumber.error = null
     }
 }
